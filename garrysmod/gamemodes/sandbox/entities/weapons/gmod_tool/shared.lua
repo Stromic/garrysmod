@@ -125,7 +125,7 @@ function SWEP:Reload()
 	if ( !tool:Allowed() ) then return end
 
 	-- Ask the gamemode if it's ok to do this
-	if ( !gamemode.Call( "CanTool", self.Owner, trace, mode ) ) then return end
+	if ( !gamemode.Call( "CanTool", self.Owner, trace, mode, IN_RELOAD ) ) then return end
 
 	if ( !tool:Reload( trace ) ) then return end
 
@@ -235,7 +235,7 @@ function SWEP:PrimaryAttack()
 	if ( !tool:Allowed() ) then return end
 
 	-- Ask the gamemode if it's ok to do this
-	if ( !gamemode.Call( "CanTool", self.Owner, trace, mode ) ) then return end
+	if ( !gamemode.Call( "CanTool", self.Owner, trace, mode, IN_ATTACK ) ) then return end
 
 	if ( !tool:LeftClick( trace ) ) then return end
 
@@ -258,7 +258,7 @@ function SWEP:SecondaryAttack()
 
 	-- Ask the gamemode if it's ok to do this
 	if ( !tool:Allowed() ) then return end
-	if ( !gamemode.Call( "CanTool", self.Owner, trace, mode ) ) then return end
+	if ( !gamemode.Call( "CanTool", self.Owner, trace, mode, IN_ATTACK2 ) ) then return end
 
 	if ( !tool:RightClick( trace ) ) then return end
 
